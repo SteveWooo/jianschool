@@ -1,0 +1,109 @@
+<ion-view view-title="订单详情" hide-tabs="true" class="repair-detail-repair" id="repair_detail" cache-view='false'>
+  <ion-content class="list_content" id="mine_repair" style="background:#eeeeee" ng-cloak>
+    <div>
+      <div class="top-state">
+        <div class="row">
+          <div align="center" class="col order-state {{order_state[0]}}">
+            订单已提交
+            <div class="{{order_state_icon[0]}}">
+            </div>
+          </div>
+          <div align="center" class="col order-state {{order_state[1]}}">
+            后勤处理中
+            <div class="{{order_state_icon[1]}}">
+            </div>
+          </div>
+          <div align="center" class="col order-state {{order_state[2]}}">
+            订单已完成
+            <div class="{{order_state_icon[2]}}">
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <ion-list class="order-trace" ng-cloak>
+        <div class="{{order_style}}">
+          <ion-item class="title">
+            <strong>订单跟踪</strong>
+          </ion-item>
+          <ion-item align="center" ng-click="hide_all_order()" ng-if="show_all == true">
+            收起
+          </ion-item>
+          <ion-item class="item-avatar order-trace-last">
+            <img class="icon-active " src="img/tools/repair/order_icon_active.png">
+            <div class="item-text-wrap">{{repair_detail.traces_top.content}}</div>
+            <div align="right">{{repair_detail.traces_top.created_at}}</div >
+          </ion-item>
+          <ion-item class="item-avatar order-trace" ng-repeat="item in repair_detail.traces track by $index">
+            <img class="icon" src="img/tools/repair/order_icon.png">
+            <div class="item-text-wrap">{{item.content}}</div>
+            <div align="right">{{item.created_at}}</div>
+          </ion-item>
+        </div>
+        <ion-item align="center" ng-click="show_all_order()" ng-if="show_all == false">
+          显示全部 
+        </ion-item>
+        <ion-item align="center" ng-click="hide_all_order()" ng-if="show_all == true">
+          收起
+        </ion-item>
+      </ion-list>
+      <br>
+      <ion-list class="order-detail">
+        <ion-item class="title item-icon-right">
+          <strong>订单详情</strong>
+          <span class="item-note">
+            订单号:{{repair_detail.id}}
+          </span>
+        </ion-item>
+        <ion-item class="detail-item">
+          联系人：{{repair_detail.name}}
+        </ion-item>
+        <ion-item class="detail-item">
+          联系方式：{{repair_detail.mobile}}
+        </ion-item>
+        <ion-item class="detail-item">
+          预约日期：{{repair_detail.appointment_date}}
+        </ion-item>
+        <ion-item class="detail-item">
+          预约时间：{{repair_detail.repair_appointment.start}}-{{repair_detail.repair_appointment.end}}
+        </ion-item>
+        <ion-item class="detail-item">
+          报修地址：{{repair_detail.repair_area.name}}-{{repair_detail.dormitory_no}}
+        </ion-item>
+        <br>
+        <ion-item class="detail-item">
+          报修详情：{{repair_detail.repair_content.name}}
+        </ion-item>
+        <ion-item class="detail-item">
+          创建日期：{{repair_detail.created_at}}
+        </ion-item>
+        <ion-item class="item-text-wrap" style="color:#999">
+          详细内容：{{repair_detail.content}}
+        </ion-item>
+        <ion-item class="detail-item-img">
+          <div class="row">
+            <div class="col" align="center" ng-click="show_img()">
+              <img ng-src="{{repair_detail.img}}">
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+  </ion-content>
+  <div ng-if="repair_detail.status == 4  " class="bar bar-footer bar-dark">
+    <div class="button pull-right" ng-click="repair_finished()" style="background:#ff9b0c;font-size:1.5em;">
+      维修完毕
+    </div>
+  </div>
+</ion-view>
+<script id="image-modal.html" type="text/ng-template">
+  <div class="modal image-modal transparent" ng-click="closeModal()">
+      <ion-pane class="transparent">
+         <img ng-src="{{img_src}}" class="fullscreen-image"/>
+      </ion-pane>
+  </div>
+</script>

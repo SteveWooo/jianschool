@@ -1,0 +1,53 @@
+<ion-view title="选择班次" hide-tabs="false">
+	<ion-content class="buy_ticket_detail" style="background-color: #eee">
+		<ion-refresher pulling-text="下拉刷新" on-refresh="tools.do_refresh()"></ion-refresher>
+		<div class="date" align="center">
+			日期：{{list.date}}
+		</div>
+		<div class="content">
+			<ul class="list">
+				<li class="item" style="border-top: 0" ng-repeat="item in list.lists" ng-click="list.checkDetail(item.conf.id)">
+					<div class="car-type"></div>
+					<div class="car-type-msg">
+						{{item.conf.carType}}
+					</div>
+					<div class="row">
+						<div class="col-20 time">
+							{{item.conf.time}}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-50 begin-path">
+							{{item.conf.beginPath}}
+						</div>
+					</div>
+
+					<div class="row">
+					<div class="col-20">
+						</div>
+						<div class="col-33 pass">
+							<img src="img/tools/ticket/pass_buyTicketDetail.png">
+						</div>
+						<div class="col-50 end-path">
+							{{item.conf.endPath}}
+						</div>
+					</div>
+
+					<div class="row down-panel">
+						<div class="col-33"></div>
+						<div class="col-10 less-ticket">
+							{{item.conf.lessTicket}}
+						</div>
+						<div class="col-10 price">
+							{{item.conf.price}}
+						</div>
+						<div class="col-10 buy-icon">
+							<img src="img/tools/ticket/buy_icon.png">
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</ion-content>
+</ion-view>

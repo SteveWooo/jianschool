@@ -1,0 +1,40 @@
+<ion-view view-title="我的报修单" class="repair-mine-repair" id="my_repair" cache-view='true'>
+	<ion-nav-buttons side="left">
+	  <a class="button" href="index.html#/tab/tools">
+	    <i class="ion-chevron-left">返回</i>
+	  </a>
+	</ion-nav-buttons>
+   <div class="tabs-striped tabs-top tabs-background-light tabs-color-positive">
+    <div class="tabs">
+      <a class="tab-item {{tab_active_array[0]}}" href="#" ng-click="tab_show_list(0)">
+        全部
+      </a>
+      <a class="tab-item {{tab_active_array[1]}}" href="#" ng-click="tab_show_list(1)">
+        处理中
+      </a>
+      <a class="tab-item {{tab_active_array[2]}}" href="#" ng-click="tab_show_list(2)">
+        已完成
+      </a>
+    </div>
+  </div>
+  <ion-content class="list_content" id="mine_repair" style="background:#eeeeee" scrollbar-y="false">
+    <ion-refresher pulling-text="下拉刷新" on-refresh="do_refresh()"></ion-refresher>
+    <ion-list> 
+      <ion-item class="item-thumbnail-left item-icon-right" ng-repeat="item in repair_list" type="item-text-wrap" ng-click="view_detail({{item.id}})" ng-show="(item.state == '已完成'&&(show_list == 2 ||show_list ==0))||(item.state != '已完成'&&(show_list == 1||show_list == 0))">
+        <!-- <img ng-src="{{item.img[0]}}"> -->
+        <img ng-src="img/ionic.png">
+        <p class="detail">{{item.repair_content.name}}</p>
+        <p class="position">{{item.repair_area.name}} {{item.mobile}}</p>
+        <div class="time">
+          {{item.created_at}}
+        </div>
+        <div class="icon">
+          <img ng-src="{{item.state_img}}">
+        </div>
+      </ion-item>
+      <ion-item align='center' ng-click="getMoreList()">
+          加载更多
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

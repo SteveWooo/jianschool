@@ -1,0 +1,69 @@
+<ion-view view-title="购买车票" class="buy_ticket" id="buy_ticket" cache-view='true'>
+	<ion-nav-buttons side="left">
+	  <a class="button" href="index.html#/tab/tools">
+	    <i class="ion-chevron-left"> 返回</i>
+	  </a>
+	</ion-nav-buttons>
+  <ion-content style="background:#eeeeee">
+    <ion-slide-box show-pager="false" active-slide="my_slide" does-continue="true" slide-interval="{{my_slide_reside}}" auto-play="true" style="height:8.5em">
+      <ion-slide>
+        <a href="#/tab/consult">
+          <div class="slide-title">
+              
+          </div>
+          <img style="width:100%;height:100%" ng-src="{{slide.images[0]}}">
+        </a>
+      </ion-slide>
+    </ion-slide-box>
+    <br>
+    <div class="buy_ticket_content">
+        <div class="row">
+            <div class="col-10 begin-path">
+                <img src="img/tools/ticket/start.png">
+            </div>
+            <div class="col-50 begin-path-msg">
+                <!-- {{path.beginPath}} -->
+                <select id="beginPath" ng-model="path.beginPath" ng-change="path.beginPathOnchange()">
+                    <option ng-repeat="item in path.allPath">{{item.name}}</option>
+                </select>
+            </div>
+            <!-- <div class="col-33 pass-path"> -->
+                <!-- <img src="img/tools/ticket/pass.png"> -->
+            <!-- </div> -->
+        </div>
+        <div class="row">
+            <div class="col-10 begin-path">
+                <img src="img/tools/ticket/end.png">
+            </div>
+            <div class="col-25 begin-path-msg">
+                <!-- {{path.endPath}} -->
+                <select id="endPath" ng-model="path.endPath" ng-change="path.endPathOnChange()">
+                    <option ng-repeat="item in path.allPath">{{item.name}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="hrline"></div>
+
+        <div class="row date">
+            <div class="col-10 icon">
+                <img src="img/tools/ticket/calendar.png">
+            </div>
+            <div class="col-75 date-message" ng-click="date.datePick()">
+                {{date.selectedDate}}
+            </div>
+            <div class="col-33 right-icon">
+                <i class="ion-chevron-right"></i>
+            </div>
+        </div>
+
+        <div align="center" class="submit" ng-click="submit.submit()">
+            查 询
+        </div>
+        <div id="wait" align="center">
+            <ion-spinner icon="spiral"></ion-spinner>
+        </div>
+    </div>
+
+  </ion-content>
+</ion-view>

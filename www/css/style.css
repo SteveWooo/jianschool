@@ -1,0 +1,909 @@
+.scroll{
+    height:100%;
+}
+/*.scroll-content {
+    margin-bottom: 42px;
+}*/
+.swiper-pagination {
+    display: none;
+}
+.swiper-container {
+    overflow-x:hidden;
+    overflow-y:scroll;
+}
+
+.consult .slide-title{
+	position:absolute;
+	margin-top:7.2em;
+	background-color:rgba(0,0,0,0.6);
+	color:#ddd;
+	width:100%;
+	line-height:1.3em;
+	font-size:1em;
+}
+
+.consult .br{
+	width: 100%;
+	height: 0.8em;
+	background-color: #eee;
+}
+
+.news_detail img{
+	width:100%;
+	height:auto;
+}
+
+.news-list-item{
+	height: 1em;
+}
+
+.news-list-item .title{
+	font-size: 1em;
+	font-weight: normal;
+	color: #444;
+	margin-top: 0.3em;
+}
+
+.news-list-item img{
+	border-radius: 0.3em;
+}
+
+.news-list-item .description{
+	font-size: 0.8em;
+	line-height: 1.45em;
+	color: #929292;
+	height: 2.9em;
+	overflow: hidden;
+}
+
+.news-list-item .time{
+	font-size: 0.8em;
+	text-align: right;
+	color: #929292;
+}
+
+.news_detail .title{
+	font-size: 1.8em;
+	color: #111;
+	font-weight: normal;
+
+}
+
+.news_detail .author{
+	font-size: 1em;
+	color: #666;
+	font-weight: normal;
+
+}
+
+.news_detail .time{
+	font-size: 1em;
+	color: #666;
+	font-weight: normal;
+
+}
+
+.news_detail #doc{
+	font-size: 1.4em;
+	color: #444;
+	line-height: 1.2em;
+	text-align:justify; 
+	text-justify:inter-ideograph;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+
+.account{
+	background: #eee;
+}
+
+.account .portrait{
+	margin-top: -0.45em;
+	height: 5em;
+	width: 5em;
+	border-radius: 0.4em;
+/*	position: relative;*/
+}
+
+.account .mine{
+	height:7.5em
+}
+
+.account .nick{
+	margin-top: 0.5em;
+	height: 1.1em;
+	margin-left: 1.5em;
+	font-size: 1.1em;
+	color: #111;
+	font-weight: normal;
+}
+
+.account .sign{
+	padding-top: 0.8em;
+	margin-left: 0.9em;
+	font-size: 0.9em;
+	color: #999;
+	overflow: hidden;
+	font-weight: normal;
+}
+
+.account .right-icon{
+	margin-top: 1.2em;
+	opacity: 0.4;
+}
+
+.account .right-icon-sub{
+	opacity: 0.4;
+	margin-top: -0.8em;
+	margin-right: -0.7em;
+}
+
+.account .icon{
+	height: 1.4em;
+	margin-top: -0.9em;
+	margin-bottom: 1em;
+	margin-left: -0.7em;
+}
+
+.account .sub-title{
+	margin-top: -0.8em;
+	font-weight: normal;
+	color: #333;
+	font-size: 1em;
+	margin-left: -0.9em;
+}
+
+.account .sub-content{
+	margin-top: -0.9em;
+	font-weight: normal;
+	font-size: 1em;
+	color: #999;
+	margin-right: -1em;
+}
+
+.account .mine-sub-div{
+	background-color:#fff;
+	padding-left:0em;
+}
+
+.account .mine-sub{
+	height: 3em;
+	border-left: 0px;
+	/*border-top: 1px;*/
+	/*border-bottom: 1px solid #000;*/
+}
+
+.account-detail{
+	background-color: #eee;
+}
+
+.account-detail .portrait-list{
+	height: 7em;
+	border-left: 0px;
+	border-top: 0px;
+}
+
+.account-detail .mine-sub-div{
+	background-color:#fff;
+	padding-left:0em;
+}
+
+.account-detail .mine-sub{
+	height: 3em;
+	border-left: 0px;
+	/*border-top: 1px;*/
+	/*border-bottom: 1px solid #000;*/
+}
+
+.account-detail .right-icon{
+	opacity: 0.4;
+	margin-top: 1em;
+	margin-left: 1.2em;
+}
+
+.account-detail .portrait{
+	height: 5em;
+	width:5em;
+	margin-top: -0.7em;
+	border-radius: 0.5em;
+}
+
+.account-detail .portrait-list .title{
+	margin-top: 1em;
+	font-weight: normal;
+	color: #333;
+	font-size: 1em;
+	margin-left: -0.5em;
+}
+
+.account-detail .sub-list{
+	height:3em;
+}
+
+.account-detail .sub-title{
+	font-weight: normal;
+	color: #333;
+	font-size: 1em;
+	margin-top: -0.8em;
+	margin-left: -0.5em;
+}
+
+.account-detail .sub-content{
+	font-weight: normal;
+	color: #999;
+	font-size: 1em;
+	margin-top: -0.8em;
+	margin-left: 3em;
+}
+
+.account-detail .sub-right-icon{
+	opacity: 0.4;
+	margin-top: -0.7em;
+	margin-left: 0.2em;
+}
+
+.account-nick{
+	background-color: #eee;
+}
+
+.account-nick label{
+	margin-top: 1em;
+}
+
+
+.account-verified .sw-input{
+	height: 3.8em;
+}
+
+.account-verified .sw-input .input-label{
+	color: #999
+}
+
+.repair-new-repair ion-item{
+	height: 3.5em;
+}
+
+.repair-new-repair ion-item .left-label{
+	margin-top: -0.2em;
+}
+
+.repair-new-repair ion-item .left-label strong{
+	font-size: 1.1em;
+}
+
+.repair-new-repair ion-item .right-label{
+	margin-top: -0.4em;
+	margin-left: 1em;
+}
+
+.repair-new-repair ion-item .right-label select{
+	
+}
+
+.repair-new-repair ion-item .right-label input{
+	color: #777;
+	font-size: 1em;
+}
+
+.repair-new-repair ion-item .right-label .date{
+	margin-top: -0.4em;
+	width: 19em;
+}
+
+.repair-new-repair ion-item .right-label .date input{
+	width: 5em;
+}
+
+.repair-new-repair .input-drom{
+	border-left: 0px;
+	border-top: 0px;
+	border-right: 0px;
+	margin-top: 0.3em;
+}
+
+.repair-new-repair select{
+	border-left: 0px;
+	border-top: 0px;
+	border-right: 0px;
+	border-bottom: 0px;
+	background-color: #fff;
+	-webkit-appearance: none;
+}
+
+.repair-new-repair ion-item .right-label .radio{
+	margin-top: -0em;
+	height: 1.5em;
+	width: 1.5em;
+}
+
+.repair-new-repair ion-item .right-label .font{
+	font-size: 1em;
+	color: #666;
+}
+
+.repair-new-repair ion-item .right-label .repair-content{
+	margin-top: 0.4em;
+}
+
+.repair-new-repair .description{
+	height: 9em;
+}
+
+.repair-new-repair .description textarea{
+	margin-left: 0.3em;
+	width: 90%;
+	font-size: 1em;
+	color: #666;
+}
+
+.repair-new-repair .repair-photo{
+	height: auto;
+}
+.repair-new-repair .repair-photo img{
+	width: 6em;
+	height: 6em;
+}
+
+.repair-new-repair .submit{
+	height: auto;
+}
+.repair-new-repair .submit button{
+	width: 16em;
+}
+
+.popover-repair{
+	width:100%;
+	height: 60%;
+}
+
+.tools{
+	background:#fff
+}
+
+.tools .title{
+	position:absolute;
+	margin-top:7.2em;
+	background-color:rgba(0,0,0,0.6);
+	color:#ddd;
+	width:100%;
+	line-height:1.3em;
+	font-size:1em;
+}
+
+.tools .panel{
+	height: 10em;
+}
+
+.tools .br{
+	width: 100%;
+	height: 1em;
+	background-color: #eee;
+}
+
+.tools .row{
+	height: 9em;
+	width: 100%;
+}
+
+.tools .grid_9{
+	background-color: #fff;
+}
+
+.tools .grid_9 .img-touch-end{
+	width: 6em;
+	height: 6em;
+}
+
+.tools .grid_9 .img-touch-start{
+	margin-top: -0.3em;
+	height: 6.6em;
+	width: 6.6em;
+}
+
+.repair-mine-repair .tab-item{
+	font-size: 1.3em;
+}
+
+.repair-mine-repair .list_content{
+	margin-top: 3em;
+	line-height: 1.3em;
+}
+
+.repair-mine-repair .list_content .detail{
+	font-size: 1em;
+	margin-top: 1em;
+	color: #111;
+}
+
+.repair-mine-repair .list_content .position{
+	font-size: 0.9em;
+	color: #666;
+}
+
+.repair-mine-repair .list_content .time{
+	font-size: 0.8em;
+	color: #666;
+}
+
+.repair-mine-repair .list_content .icon img{
+	height: 0.5em;
+	margin-top: 1em;
+}
+
+.repair-detail-repair{
+	background-color: #eee;
+}
+
+.repair-detail-repair .content{
+}
+
+.evaluate .content .repair-result{
+	margin-top: 2em;
+	font-size: 1.1em;
+	height: 3em;
+	background-color: #fff;
+	color:#666;
+}
+
+.evaluate .content .repair-result .title{
+	color: #333;
+}
+
+.evaluate .content .repair-result .state{
+	color: #999;
+}
+
+.evaluate .content .can_repair_detail{
+	height: 10em;
+	background-color: #fff;
+	font-size: 1.2em;
+	color: #999
+}
+
+.evaluate .content .can_repair_detail textarea{
+	font-size: 1em;
+	width: 90%;
+	margin-left: 5%;
+}
+
+.evaluate .content .appraise{
+	height: 14em;
+	background-color: #fff;
+	font-size: 1.2em;
+	color: #999
+}
+
+.evaluate .content .appraise textarea{
+	font-size: 1em;
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 1em;
+}
+
+.evaluate .content .appraise img{
+	height :1.2em;
+}
+
+.repair-detail-repair .top-state{
+	height: 6.5em;
+	margin-top: 2em;
+	background-color: #fff;
+}
+
+.repair-detail-repair .order-state{
+	margin-top: 0.5em;
+	font-size: 1.1em;
+	color: #999;
+	line-height: 2em;
+}
+
+.repair-detail-repair .order-state-active{
+	color: #79b0ee;
+}
+
+.repair-detail-repair .order-state-icon{
+	margin-top: 0.8em;
+	background-repeat: no-repeat;
+	background-position: 50%;
+    height: 1em;
+	background-image: url('../img/tools/repair/order_icon.png');
+	background-size:contain;
+}
+
+.repair-detail-repair .order-state-icon-active{
+	margin-top: 0.7em;
+	background-repeat: no-repeat;
+	background-position: 50%;
+    height: 1.3em;
+	background-image: url('../img/tools/repair/order_icon_active.png');
+	background-size:contain;
+}
+
+
+.repair-detail-repair .order-trace .order-content{
+	height:15em;
+	line-height: 1.5em;
+	overflow:hidden;
+}
+
+.repair-detail-repair .order-trace .order-content_all{
+	height:auto;
+	line-height: 1.5em;
+	overflow:hidden;
+}
+
+.repair-detail-repair .order-trace .title{
+	height: 3.2em;
+}
+
+.repair-detail-repair .order-trace .order-trace-last div{
+	color: #3391e8;
+}
+
+.repair-detail-repair .order-trace .order-trace div{
+	color: #999;
+}
+
+.repair-detail-repair .order-trace .icon-active{
+	margin-top: 0.7em;
+	height: 1.3em;
+	width: auto;
+}
+
+.repair-detail-repair .order-trace .icon{
+	margin-top: 0.7em;
+	height: 1em;
+	width: auto;
+}
+
+.repair-detail-repair .order-detail .title{
+	height: 3.2em;
+}
+
+.repair-detail-repair .order-detail .detail-item{
+	color: #999;
+}
+
+.repair-detail-repair .order-detail .detail-item-detail{
+	height: 6em;
+	color: #999;
+}
+
+.repair-detail-repair .order-detail .detail-item-img{
+	height: 7em;
+}
+
+.repair-detail-repair .order-detail .detail-item-img img{
+	width: 6em;
+	height: 6em;
+	margin-top: -1.2em;
+}
+
+/*foods*/
+.foods_index .navbar{
+	/*position: absolute;*/
+	/*margin-top: 3em*/
+	/*height: 2em;*/
+}
+
+.foods_index .col{
+	background-color: #fff;
+	color: #999;
+	/*margin-top: -1.2em;*/
+}
+
+.foods_my_list {
+	margin-top: 3em
+}
+
+.foods-list-item{
+	height: 1em;
+}
+
+.foods-list-item .title{
+	font-size: 1em;
+	font-weight: normal;
+	color: #444;
+	margin-top: 0.3em;
+}
+
+.foods-list-item .icon{
+}
+
+.foods-list-item .icon img{
+	height: 0.5em;
+	margin-right:0.3em;
+	margin-top: 1em
+}
+
+.foods-list-item .star img{
+	height: 1em
+}
+
+.foods-list-item .star{
+	font-weight: normal;
+	color:#ff6000;
+}
+
+.foods-list-item img{
+	border-radius: 0.3em;
+}
+
+.foods-list-item .description{
+	font-size: 0.8em;
+	color: #929292;
+	height: 2.8em;
+	overflow: hidden;
+}
+
+.foods-list-item .time{
+	font-size: 0.8em;
+	text-align: right;
+	color: #929292;
+}
+
+.foods_index_detail .food_list .title{
+	margin-top: 0.3em;
+	color:#222;
+}
+
+.foods_index_detail .food_list .describe{
+	margin-top: 0.5em;
+	color:#999;
+}
+
+.foods_index_detail .food_list .price{
+	color:#ff6000;
+	font-weight: bolder;
+	margin-top:1em;
+}
+
+.foods_index_detail .food_list .icon{
+	font-size: 1.3em;
+	margin-top: 0.5em;
+}
+
+.foods_index_detail .food_list .icon .count{
+	width:2em;
+}
+
+.foods_index_detail .badge-background{
+	margin-left:1em;
+	margin-top:-0.1em;
+	font-size:0.8em;
+	position:absolute;
+	width:1.2em;
+	height:1.2em;
+	background-color:#f34;
+	border-radius:50%;
+}
+
+.foods_index_detail .badge{
+	margin-left:1.2em;
+	margin-top:-0.2em;
+	color:#fff;
+	position:absolute;
+	font-size:0.6em;
+}
+
+.foods_index_detail .badge-double{
+	margin-left:1.5em;
+	margin-top:-0.7em;
+	color:#fff;
+	position:absolute;
+	font-size:0.6em;
+}
+
+
+
+.transparent {
+  background: transparent !important;
+}
+.image-modal {
+  width: 100% !important;
+  height: 100%;
+  top: 0 !important;
+  left: 0 !important;
+}
+.fullscreen-image {
+  max-width: 100%;
+  max-height: 100%;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+
+
+
+/*ticket styles*/
+
+.buy_ticket_content{
+	padding-top: 0.3em;
+	width: 100%;
+	height: 15.9em;
+	background-color: #fff
+}
+
+.buy_ticket_content .begin-path{
+	padding:0 0 0 1em;
+}
+
+.buy_ticket_content .begin-path img{
+	width: 1.7em;
+	margin-top: 0.5em
+}
+
+.buy_ticket_content .begin-path-msg{
+	color:#333;
+	font-size: 16px;
+	margin-left: 0.6em;
+	margin-top: 0.55em;
+}
+
+
+.buy_ticket_content .end-path img{
+	width: 1.55em;
+	margin-top: 0.5em;
+}
+
+.buy_ticket_content .end-path-msg{
+	color:#333;
+	font-size: 16px;
+	margin-top: 0.55em;
+}
+
+
+.buy_ticket_content .pass-path img{
+	width: 80%;
+	margin-top: 1em;
+}
+
+.buy_ticket_content .hrline{
+	width: 90%;
+	height: 1px;
+	margin: 0.3em 0 0.8em 5%;
+	background-color: #eee;
+}
+
+.buy_ticket_content .date{
+
+}
+
+.buy_ticket_content .date .icon img{
+	width: 1.4em;
+	margin-left: 1em;
+}
+
+.buy_ticket_content .date .date-message{
+	color:#666;
+	margin-left: 13px;
+	font-size: 16px
+}
+
+.buy_ticket_content .date .right-icon{
+	opacity: 0.3;
+}
+
+.buy_ticket_content .submit{
+	margin-top: 2em;
+	width: 80%;
+	height: 3em;
+	margin-left: 10%;
+	background-color: #ff9b0c;
+	border-radius: 5px;
+	line-height: 3em;
+	color:#fff;
+}
+
+/*buy_ticket_detail*/
+
+.buy_ticket_detail {
+
+}
+
+.buy_ticket_detail .car-type{
+	position: absolute;
+	top:0px;
+	right:0px;
+	width: 0;
+    height: 0;
+    border-top: 45px solid #ff9b0c;
+    border-left: 45px solid transparent; 
+}
+
+.buy_ticket_detail .car-type-blue{
+	position: absolute;
+	top:0px;
+	right:0px;
+	width: 0;
+    height: 0;
+    border-top: 45px solid #3391e8;
+    border-left: 45px solid transparent; 
+}
+
+.buy_ticket_detail .car-type-grey{
+	position: absolute;
+	top:0px;
+	right:0px;
+	width: 0;
+    height: 0;
+    border-top: 45px solid #999;
+    border-left: 45px solid transparent; 
+}
+
+.buy_ticket_detail .car-type-msg{
+	position:absolute;
+	font-size: 11px;
+	font-weight: bold;
+	top:7px;
+	right: -2px;
+	color:#fff;
+	transform:rotate(45deg);
+}
+
+.buy_ticket_detail .date{
+	background-color: #eee;
+	height: 2em;
+	line-height: 2em;
+	color:#3391e8;
+	font-size: 12px;
+}
+
+.buy_ticket_detail .content{
+
+}
+
+.buy_ticket_detail .content .time{
+
+}
+
+.buy_ticket_detail .content .begin-path{
+	font-size: 1em;
+}
+
+.buy_ticket_detail .content .end-path{
+	font-size: 1em;
+}
+
+.buy_ticket_detail .content .pass img{
+	width: 70%;
+	margin-left: 28%;
+	margin-bottom: 3px;
+}
+
+.buy_ticket_detail .content .down-panel{
+	margin-top: 0.8em;
+}
+
+.buy_ticket_detail .content .less-ticket{
+	font-size: 12px;
+	margin-right: 14px;
+	margin-left: 5px;
+	margin-top: 4px;
+	color:#999;
+}
+
+.buy_ticket_detail .content .price{
+	color:#f96269;
+	font-size: 22px;
+	margin-right: 50px;
+	margin-top: 2px;
+}
+
+.buy_ticket_detail .content .buy-icon img{
+	width: 3em;
+}
+
+
+/*buy_ticket_detail_submit*/
+
+.buy_ticket_detail_submit .content{
+
+}
+

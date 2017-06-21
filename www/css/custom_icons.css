@@ -1,0 +1,178 @@
+.icon-news-h{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/index/index-assets/news_h.png');
+  background-size:contain;
+}
+.icon-news{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/index/index-assets/news.png');
+  background-size:contain;
+}
+.icon-find-h{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/index/index-assets/find_h.png');
+  background-size:contain;
+}
+.icon-find{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/index/index-assets/find.png');
+  background-size:contain;
+}
+.icon-me-h{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/index/index-assets/me_h.png');
+  background-size:contain;
+}
+.icon-me{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/index/index-assets/me.png');
+  background-size:contain;
+}
+
+.icon-new-repair-h{
+  background-repeat: no-repeat;
+  background-position: 0%;
+  height: 100%;
+  background-image: url('../img/tools/repair/new_repair_h.png');
+  background-size:contain;
+}
+
+.icon-new-repair{
+  background-repeat: no-repeat;
+  background-position: 0%;
+  height: 100%;
+  background-image: url('../img/tools/repair/new_repair.png');
+  background-size:contain;
+}
+
+.icon-mine-repair{
+  background-repeat: no-repeat;
+  background-position: 100%;
+  height: 100%;
+  background-image: url('../img/tools/repair/mine_repair.png');
+  background-size:contain;
+}
+
+.icon-mine-repair-h{
+  background-repeat: no-repeat;
+  background-position: 100%;
+  height: 100%;
+  background-image: url('../img/tools/repair/mine_repair_h.png');
+  background-size:contain;
+}
+
+.icon-radio{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/tools/repair/radio.png');
+  background-size:contain;
+}
+
+.icon-radio-h{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/tools/repair/radio_h.png');
+  background-size:contain;
+}
+
+.icon-arrow{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/index/index-assets/arrow.png');
+  background-size:contain;
+}
+
+.icon-food_h{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/tools/foods/food_h.png');
+  background-size:contain;
+}
+
+.icon-food{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/tools/foods/food.png');
+  background-size:contain;
+}
+
+.icon-my_list_h{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/tools/foods/my_list_h.png');
+  background-size:contain;
+}
+
+.icon-my_list{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/tools/foods/my_list.png');
+  background-size:contain;
+}
+
+.icon-buy_ticket_h{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/tools/ticket/buy_ticket_h.png');
+  background-size:contain;
+}
+
+.icon-buy_ticket{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/tools/ticket/buy_ticket.png');
+  background-size:contain;
+}
+
+.icon-use_ticket_h{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/tools/ticket/use_ticket_h.png');
+  background-size:contain;
+}
+
+.icon-use_ticket{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/tools/ticket/use_ticket.png');
+  background-size:contain;
+}
+
+.icon-check_ticket_h{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/tools/ticket/check_ticket_h.png');
+  background-size:contain;
+}
+
+.icon-check_ticket{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/tools/ticket/check_ticket.png');
+  background-size:contain;
+}

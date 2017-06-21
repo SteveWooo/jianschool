@@ -1,0 +1,48 @@
+<ion-view view-title="评价确认" class="evaluate" id="evaluate">
+  <ion-content class="content" style="background:#eeeeee" scrollbar-y="false">
+  	<div class="repair-result">
+      <div class="row">
+        <div class="col col-25 title">
+          维修状态
+        </div>
+        <div class="col state" ng-click="choose_repair_result(0)">
+          已维修好 
+          <img style="margin-left:0.5em;height:1.1em" ng-src="{{repair_result_icon[0]}}">
+        </div>
+        <div class="col state" ng-click="choose_repair_result(1)">
+          未维修好 
+          <img style="margin-left:0.5em;height:1em" ng-src="{{repair_result_icon[1]}}">
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="can_repair_detail" ng-if="repair_result == 1">
+       <textarea placeholder="请写下具体情况" rows="8" cols="50" ng-model="can_repair_detail" id="can_repair_detail" maxlength="140"></textarea>
+      <div align="right" style="margin-right:1em;font-size:0.8em;">还能输入{{140-can_repair_detail.length}}个字</div>
+    </div>
+    <div class="appraise" ng-if="repair_result == 0">
+      <div class="row">
+        <div align="center" class="col" ng-click="choose_appraise(1)">
+          <img ng-src="{{appraise_icon[1]}}">
+            差评
+        </div>
+        <div align="center" class="col" ng-click="choose_appraise(2)">
+          <img ng-src="{{appraise_icon[2]}}">
+            中评
+        </div>
+        <div align="center" class="col" ng-click="choose_appraise(3)">
+          <img ng-src="{{appraise_icon[3]}}">
+            好评
+        </div>
+      </div>
+      <textarea ng-if="appraise_level!=2" placeholder="请写下您的15字评价" rows="8" cols="50" ng-model="appraise_detail" id="appraise_detail" maxlength="140"></textarea>
+      <textarea ng-if="appraise_level==2" placeholder="" rows="8" cols="50" ng-model="appraise_detail" id="appraise_detail" maxlength="140"></textarea>
+      <div align="right" style="margin-right:1em;font-size:0.8em;">还能输入{{140-appraise_detail.length}}个字</div>
+    </div>
+  </ion-content>
+  <div class="bar bar-footer bar-dark">
+    <div class="button pull-right" ng-click="submit_second_step()" style="background:#ff9b0c;font-size:1.5em;">
+      维修完毕
+    </div>
+  </div>
+</ion-view>

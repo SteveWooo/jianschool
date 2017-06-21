@@ -1,0 +1,83 @@
+<ion-view view-title="维修单详情" class="repair-detail-repair">
+  <ion-content>
+    <div class="top-state">
+      <div class="row">
+        <div align="center" class="col order-state {{order_state[0]}}">
+          订单已提交
+          <div class="{{order_state_icon[0]}}">
+          </div>
+        </div>
+        <div align="center" class="col order-state {{order_state[1]}}">
+          后勤处理中
+          <div class="{{order_state_icon[1]}}">
+          </div>
+        </div>
+        <div align="center" class="col order-state {{order_state[2]}}">
+          订单已完成
+          <div class="{{order_state_icon[2]}}">
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <ion-list class="order-trace">
+      <ion-item class="title">
+        <strong>订单跟踪</strong>
+      </ion-item>
+      <ion-item class="item-avatar order-trace-last">
+        <img class="icon-active" src="img/tools/repair/order_icon_active.png">
+        <p>{{repair_detail.last_order_trace.content}}</p>
+        <p>{{repair_detail.last_order_trace.date}} {{repair_detail.last_order_trace.time}}</p>
+      </ion-item>
+      <ion-item class="item-avatar order-trace" ng-repeat="item in order_trace">
+        <img class="icon" src="img/tools/repair/order_icon.png">
+        <p>{{item.content}}</p>
+        <p>{{item.date}} {{item.time}}</p>
+      </ion-item>
+    </ion-list>
+    <br>
+   <ion-list class="order-detail">
+      <ion-item class="title item-icon-right">
+        <strong>订单详情</strong>
+        <span class="item-note">
+          订单号:{{repair_detail.id}}
+        </span>
+      </ion-item>
+      <ion-item class="detail-item">
+        联系人：{{repair_detail.name}}
+      </ion-item>
+      <ion-item class="detail-item">
+        联系方式：{{repair_detail.phone}}
+      </ion-item>
+      <ion-item class="detail-item">
+        预约时间：{{repair_detail.sub_date}} {{repair_detail.sub_time}}
+      </ion-item>
+      <ion-item class="detail-item">
+        报修地址：{{repair_detail.position}}
+      </ion-item>
+      <br>
+      <ion-item class="detail-item">
+        联系内容：{{repair_detail.repair_subject}} {{repair_detail.repair_content}}
+      </ion-item>
+      <ion-item class="detail-item">
+        是否为公共区域：{{repair_detail.repair_public}}
+      </ion-item>
+      <ion-item class="detail-item-detail">
+        {{repair_detail.repair_detail}}
+      </ion-item>
+      <ion-item class="detail-item-img">
+        <div class="row">
+          <div class="col" align="center">
+            <img ng-if="repair_detail.img[0]!=null" ng-src="{{repair_detail.img[0]}}">
+          </div>
+          <div class="col"  align="center">
+            <img ng-if="repair_detail.img[1]!=null" ng-src="{{repair_detail.img[1]}}">
+          </div>
+          <div class="col" align="center">
+            <img ng-if="repair_detail.img[2]!=null" ng-src="{{repair_detail.img[2]}}">
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+    
+</ion-view>

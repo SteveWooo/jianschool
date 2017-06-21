@@ -1,0 +1,59 @@
+<ion-view title="使用车票" hide-tabs="false" cache-view="true">
+	<ion-nav-buttons side="left">
+	  <a class="button" href="index.html#/tab/tools">
+	    <i class="ion-chevron-left"> 返回</i>
+	  </a>
+	</ion-nav-buttons>
+	<ion-content class="buy_ticket_detail" style="background-color: #eee">
+		<ion-refresher pulling-text="下拉刷新" on-refresh="tools.do_refresh()"></ion-refresher>
+		<div class="content">
+			<ul class="list">
+				<li class="item" style="border-top: 1" ng-repeat="item in list.lists" ng-click="list.checkDetail(item.id)">
+					<div class="car-type-grey" ng-if="item.status==1 || item.status == 4"></div>
+					<div class="car-type" ng-if="item.status==2"></div>
+					<div class="car-type-blue" ng-if="item.status==3"></div>
+					<div class="car-type-msg">
+						{{item.carType}}
+					</div>
+					<div class="row">
+						<div class="col-20 begin-path">
+							{{item.start_name}}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-33">
+						
+						</div>
+						<div class="col-20 pass">
+							<img src="img/tools/ticket/pass_buyTicketDetail.png">
+						</div>
+						<div class="col-20 end-path">
+							{{item.dest_name}}
+						</div>
+					</div>
+
+					<div class="row down-panel">
+						<div class="col-50">
+							{{item.shift.departure_date}} {{item.shift.departure_time}}
+						</div>
+					</div>
+
+					<div class="row">
+						<div style="color:#999;font-size: 14px">
+							id:{{item.id}}
+						</div>
+					</div>
+				</li>
+				<li class="item">
+					<div align="center" ng-click="list.getMore()" ng-if="list.total < list.allPage" style="color:#999">
+						加载更多..
+					</div>
+					<div align="center" ng-if="list.total >= list.allPage" style="color:#999">
+						已无更多
+					</div>
+				</li>
+			</ul>
+		</div>
+	</ion-content>
+</ion-view>

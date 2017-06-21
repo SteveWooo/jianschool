@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/custom_icons.css" rel="stylesheet">
+    <link rel="prefetch" href="repair.html" />
+
+    <script src="lib/jquery-2.2.0.min.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="cordova.js"></script>
+
+    <!--my app js-->
+    <script src="js/view/app-repair.js"></script>
+
+    <script src="js/controller/repair_ctrls/controllers.js"></script>
+
+    <script src="js/model/services.js"></script>
+    <script src="js/model/repair_services/services.js"></script>
+  </head>
+  <body ng-app="repair" id="repair_detail" ng-controller="repair_detail_ctrl" class="repair-detail-repair">
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <div ng-if="submit_step == 1" class="bar bar-header bar-positive" ng-cloak>
+      <a class="button" href="repair.html#/tab/myrepair">
+        <i class="ion-chevron-left"></i>
+      </a>
+      <h1 class="title">订单详情</h1>
+    </div>
+
+    <div ng-if="submit_step == 2" class="bar bar-header bar-positive" ng-cloak>
+      <a class="button" ng-click="submit_step_back()">
+        <i class="ion-chevron-left"></i>
+      </a>
+      <h1 class="title">确认维修</h1>
+    </div>
+
+    <ion-content class="content" ng-cloak>
+      <div ng-if="submit_step == 1" style="margin-bottom:4.5em">
+        <div class="top-state">
+          <div class="row">
+            <div align="center" class="col order-state {{order_state[0]}}">
+              订单已提交
+              <div class="{{order_state_icon[0]}}">
+              </div>
+            </div>
+            <div align="center" class="col order-state {{order_state[1]}}">
+              后勤处理中
+              <div class="{{order_state_icon[1]}}">
+              </div>
+            </div>
+            <div align="center" class="col order-state {{order_state[2]}}">
+              订单已完成
+              <div class="{{order_state_icon[2]}}">
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <ion-list class="order-trace">
+          <ion-item class="title">
+            <strong>订单跟踪</strong>
+          </ion-item>
+          <ion-item class="item-avatar order-trace-last ">
+            <img class="icon-active " src="img/tools/repair/order_icon_active.png">
+            <div class="item-text-wrap">{{repair_detail.traces_top.content}}</div>
+            <div align="right">{{repair_detail.traces_top.created_at}}</div >
+          </ion-item>
+          <ion-item class="item-avatar order-trace" ng-repeat="item in repair_detail.traces track by $index">
+            <img class="icon" src="img/tools/repair/order_icon.png">
+            <div class="item-text-wrap">{{item.content}}</div>
+            <div align="right">{{item.created_at}}</div>
+          </ion-item>
+        </ion-list>
+        <br>
+       <ion-list class="order-detail">
+          <ion-item class="title item-icon-right">
+            <strong>订单详情</strong>
+            <span class="item-note">
+              订单号:{{repair_detail.id}}
+            </span>
+          </ion-item>
+          <ion-item class="detail-item">
+            联系人：{{repair_detail.name}}
+          </ion-item>
+          <ion-item class="detail-item">
+            联系方式：{{repair_detail.mobile}}
+          </ion-item>
+          <ion-item class="detail-item">
+            预约日期：{{repair_detail.appointment_date}}
+          </ion-item>
+          <ion-item class="detail-item">
+            预约时间：{{repair_detail.repair_appointment.start}}-{{repair_detail.repair_appointment.end}}
+          </ion-item>
+          <ion-item class="detail-item">
+            报修地址：{{repair_detail.repair_area.name}}
+          </ion-item>
+          <br>
+          <ion-item class="detail-item">
+            报修详情：{{repair_detail.repair_content.name}}
+          </ion-item>
+          <ion-item class="detail-item">
+            是否为公共区域：{{repair_detail.repair_area.public == '0'?"否":"是"}}
+          </ion-item>
+          <ion-item class="item-text-wrap" style="color:#999">
+            详细内容：{{repair_detail.content}}
+          </ion-item>
+          <ion-item class="detail-item-img">
+            <div class="row">
+              <div class="col" align="center" ng-click="show_img()">
+                <img ng-src="{{repair_detail.img}}">
+              </div>
+<!--               <div class="col"  align="center">
+                <img ng-if="repair_detail.img[1]!=null" ng-src="{{repair_detail.img[1]}}">
+              </div>
+              <div class="col" align="center">
+                <img ng-if="repair_detail.img[2]!=null" ng-src="{{repair_detail.img[2]}}">
+              </div> -->
+            </div>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <div ng-if="submit_step == 2" style="margin-bottom:4.5em">
+        <div class="repair-result">
+          <div class="row">
+            <div class="col col-25 title">
+              维修状态
+            </div>
+            <div class="col state" ng-click="choose_repair_result(0)">
+              已维修好 
+              <img style="margin-left:0.5em;height:1.1em" ng-src="{{repair_result_icon[0]}}">
+            </div>
+            <div class="col state" ng-click="choose_repair_result(1)">
+              未维修好 
+              <img style="margin-left:0.5em;height:1em" ng-src="{{repair_result_icon[1]}}">
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="appraise" ng-if="repair_result == 0">
+          <div class="row">
+            <div align="center" class="col" ng-click="choose_appraise(1)">
+              <img ng-src="{{appraise_icon[1]}}">
+                差评
+            </div>
+            <div align="center" class="col" ng-click="choose_appraise(2)">
+              <img ng-src="{{appraise_icon[2]}}">
+                中评
+            </div>
+            <div align="center" class="col" ng-click="choose_appraise(3)">
+              <img ng-src="{{appraise_icon[3]}}">
+                好评
+            </div>
+          </div>
+          <textarea placeholder="请写下您的评价（差评与好评需要写15字以上）" rows="8" cols="50" ng-model="appraise_detail" id="appraise_detail" maxlength="140"></textarea>
+          <div align="right" style="margin-right:1em;font-size:0.8em;">还能输入{{140-appraise_detail.length}}个字</div>
+        </div>
+
+        <div class="can_repair_detail" ng-if="repair_result == 1">
+           <textarea placeholder="请写下具体情况" rows="8" cols="50" ng-model="can_repair_detail" id="can_repair_detail" maxlength="140"></textarea>
+          <div align="right" style="margin-right:1em;font-size:0.8em;">还能输入{{140-can_repair_detail.length}}个字</div>
+        </div>
+      </div>
+    </ion-content>
+    <div ng-if="submit_step == 1&&(repair_detail.status == '4')" class="bar bar-footer bar-dark">
+      <div class="button pull-right" ng-click="submit_first_step()" style="background:#ff9b0c;font-size:1.5em;">
+        确认维修
+      </div>
+    </div>
+
+    <div ng-if="submit_step == 2" class="bar bar-footer bar-dark">
+      <div class="button pull-right" ng-click="submit_second_step()" style="background:#ff9b0c;font-size:1.5em;">
+        确认提交
+      </div>
+    </div>
+
+    <script id="image-modal.html" type="text/ng-template">
+      <div class="modal image-modal transparent" ng-click="closeModal()">
+          <ion-pane class="transparent">
+             <img ng-src="{{img_src}}" class="fullscreen-image"/>
+          </ion-pane>
+      </div>
+    </script>
+  </body>
+</html>

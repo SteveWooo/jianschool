@@ -1,0 +1,153 @@
+<ion-view view-title="<b>个人资料</b>">
+
+  <ion-content padding="false" class="account-detail" id="account-detail">
+    <!-- <a href="#/tab/account/detail/nick">aasd</a> -->
+    <ion-list>
+    	<br/>
+    	<div class="mine-sub-div">
+	    	<a class="item portrait-list" ><!--ng-click="show_img_choose()"-->
+		    	<div class="row">
+		    		<div class="col col-10 title">
+		    			头像
+		    		</div>
+		    		<div align="right" class="col col-90">
+		    			<img ng-src={{mine.portrait}} class="portrait">
+		    		</div>
+		    	</div>
+	    	</a>
+<!-- 	    	<a class="item sub-list mine-sub" href="#/tab/account/detail/nick">
+		    	<div class="row">
+		    		<div class="col col-40 sub-title">
+		    			昵称
+		    		</div>
+		    		<p align="right" class="col col-50 sub-content">
+		    			{{mine.nick}}
+		    		</p>
+		    		<div align="right" class="col sub-right-icon">
+	  					<i class=" ion-chevron-right"></i>
+	  				</div>
+		    	</div>
+	    	</a> -->
+	    	<a class="item sub-list mine-sub">
+		    	<div class="row">
+		    		<div class="col col-40 sub-title">
+		    			性别
+		    		</div>
+		    		<p align="right" class="col col-50 sub-content">
+		    			{{mine.sex}}
+		    		</p>
+		    		<div align="right" class="col sub-right-icon">
+	  					<!-- <i class=" ion-chevron-right"></i> -->
+	  				</div>
+		    	</div>
+	    	</a>
+	    	<a class="item sub-list mine-sub" style="border-bottom:0px">
+		    	<div class="row">
+		    		<div class="col col-40 sub-title">
+		    			学号
+		    		</div>
+		    		<p align="right" class="col col-50 sub-content">
+		    			{{mine.id}}
+		    		</p>
+		    		<div align="right" class="col sub-right-icon">
+	  					<!-- <i class=" ion-chevron-right"></i> -->
+	  				</div>
+		    	</div>
+	    	</a>
+    	</div>
+    	
+    	<br/>
+    	<div class="mine-sub-div">
+    		<a class="item sub-list mine-sub" style="border-top:0px">
+		    	<div class="row">
+		    		<div class="col col-40 sub-title">
+		    			学校
+		    		</div>
+		    		<div align="right" class="col col-50 sub-content">
+		    			{{mine.school}}
+		    		</div>
+		    		<div align="right" class="col sub-right-icon">
+	  					<!-- <i class=" ion-chevron-right"></i> -->
+	  				</div>
+		    	</div>
+	    	</a>
+<!-- 	    	<a class="item sub-list mine-sub">
+		    	<div class="row">
+		    		<div class="col col-40 sub-title">
+		    			院系
+		    		</div>
+		    		<p align="right" class="col col-50 sub-content">
+		    			{{mine.college}}
+		    		</p>
+		    		<div align="right" class="col sub-right-icon">
+	  				</div>
+		    	</div>
+	    	</a> -->
+	    	<a class="item sub-list mine-sub" ng-if="!isTeacher()">
+		    	<div class="row">
+		    		<div class="col col-40 sub-title">
+		    			专业
+		    		</div>
+		    		<div align="right" class="col col-50 sub-content">
+		    			{{mine.subject}}
+		    		</div>
+		    		<div align="right" class="col sub-right-icon">
+	  					<!-- <i class=" ion-chevron-right"></i> -->
+	  				</div>
+		    	</div>
+	    	</a>
+	    	<a class="item sub-list mine-sub" style="border-bottom:0px" ng-if="!isTeacher()">
+		    	<div class="row">
+		    		<div class="col col-40 sub-title">
+		    			年级
+		    		</div>
+		    		<p align="right" class="col col-50 sub-content">
+		    			{{mine.grade}}
+		    		</p>
+		    		<div align="right" class="col sub-right-icon">
+	  					<!-- <i class=" ion-chevron-right"></i> -->
+	  				</div>
+		    	</div>
+	    	</a>
+    	</div>
+    	
+    	<br/>
+<!--     	<div class="mine-sub-div">
+	    	<a class="item sub-list" href="#/tab/account/detail/sign" style="border:0px">
+		    	<div class="row">
+		    		<div class="col col-40 sub-title">
+		    			个性签名
+		    		</div>
+		    		<p align="right" class="col col-50 sub-content">
+		    			{{mine.sign}}
+		    		</p>
+		    		<div align="right" class="col sub-right-icon">
+	  					<i class=" ion-chevron-right"></i>
+	  				</div>
+		    	</div>
+	    	</a>
+    	</div>
+
+    	<br/> -->
+
+    	<div class="mine-sub-div">
+	    	<a class="item sub-list" href="#/tab/account/dromChange" style="border:0px">
+		    	<div class="row">
+		    		<div class="col col-40 sub-title">
+		    			宿舍号
+		    		</div>
+		    		<p align="right" class="col col-40 sub-content">
+		    			{{mine.dormitory.name}} {{mine.room}}
+		    		</p>
+		    		<div align="right" class="col sub-right-icon">
+	  					<i class=" ion-chevron-right"></i>
+	  				</div>
+		    	</div>
+	    	</a>
+    	</div>
+
+    	<br/>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

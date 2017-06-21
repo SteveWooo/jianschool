@@ -1,0 +1,261 @@
+<ion-view view-title="<b>我的</b>">
+  <ion-content padding="false" class="account" controller="mine_ctrl">
+  	<br/>
+  	<ion-list ng-if="page_state == 1" can-swipe="false">
+  		<a class="item mine" href="#/tab/account/detail">
+  			<div class="row">
+  				<div class="col col-25">
+  					<img class="portrait" ng-src={{mine.portrait}}>
+  				</div>
+  				<div class="col col-66">
+  					<p class="nick">
+  						{{mine.nick}}
+  					</p>
+  					<p class="sign">
+  						{{mine.sign}}
+  					</p>
+  				</div>
+  				<div align="right" class="col right-icon">
+  					<i class=" ion-chevron-right"></i>
+  				</div>
+  			</div>
+  		</a>
+  		<br/>
+  		<div class="mine-sub-div">
+<!-- 	  		<a class="item mine-sub" style="border-top:0px">
+		  		<div class="row">
+		  			<div class="col col-10 ">
+		  				<img class="icon" src="img/index/index-assets/news_h.png">
+		  			</div>
+		  			<div class="col col-20 sub-title">
+		  				宿舍
+		  			</div>
+		  			<p class="col col-70 sub-content" align="right">
+		  				{{mine.drom}}
+		  			</p>
+		  			<div class="col col-10 right-icon-sub" align="right">
+		  				<i class="ion-chevron-right"></i>
+		  			</div>
+		  		</div>
+	  		</a> -->
+<!-- 	  		<a class="item mine-sub" style="border-top:0px">
+		  		<div class="row">
+		  			<div class="col col-10 ">
+		  				<img class="icon" src="img/index/index-assets/news_h.png">
+		  			</div>
+		  			<div class="col col-20 sub-title">
+		  				姓名
+		  			</div>
+		  			<p class="col col-70 sub-content" align="right">
+		  				{{mine.name}}
+		  			</p>
+		  			<div class="col col-10 right-icon-sub" align="right">
+		  			</div>
+		  		</div>
+	  		</a> -->
+
+	  		<a class="item mine-sub" style="border-top:0px">
+		  		<div class="row">
+		  			<div class="col col-10 ">
+		  				<img class="icon" src="img/index/index-assets/news_h.png">
+		  			</div>
+		  			<div class="col col-20 sub-title">
+		  				手机
+		  			</div>
+		  			<p class="col col-70 sub-content" align="right">
+		  				{{mine.phone}}
+		  			</p>
+		  			<div class="col col-10 right-icon-sub" align="right">
+		  				<!-- <i class="ion-chevron-right"></i> -->
+		  			</div>
+		  		</div>
+	  		</a>
+	  		<a class="item mine-sub" style="border-bottom:0px" ng-click="passwordChange()">
+		  		<div class="row">
+		  			<div class="col col-10 ">
+		  				<img class="icon" src="img/index/index-assets/news_h.png">
+		  			</div>
+		  			<div class="col col-20 sub-title">
+		  				修改密码
+		  			</div>
+		  			<p class="col col-70 sub-content" align="right">
+		  				
+		  			</p>
+		  			<div class="col col-10 right-icon-sub" align="right">
+		  				<i class="ion-chevron-right"></i>
+		  			</div>
+		  		</div>
+	  		</a>
+			
+<!-- 	  		<a class="item mine-sub" style="border-bottom:0px">
+		  		<div class="row">
+		  			<div class="col col-10 ">
+		  				<img class="icon" src="img/index/index-assets/news_h.png">
+		  			</div>
+		  			<div class="col col-20 sub-title">
+		  				密码
+		  			</div>
+		  			<p class="col col-70 sub-content" align="right">
+		  				修改
+		  			</p>
+		  			<div class="col col-10 right-icon-sub" align="right">
+		  				<i class="ion-chevron-right"></i>
+		  			</div>
+		  		</div>
+	  		</a> -->
+  		</div>
+  		<br>
+  		<div class="mine-sub-div" ng-if="isIOS!=true">
+  			<a class="item mine-sub" style="border-bottom:0px;border-top:0px"  ng-click="check_upgrade()">
+		  		<div class="row">
+		  			<div class="col col-10 ">
+		  				<img class="icon" src="img/index/index-assets/news_h.png">
+		  			</div>
+		  			<div class="col col-10 sub-title">
+		  				检查更新
+		  			</div>
+		  			<div class="col col-70 sub-content" align="right">
+		  				
+		  			</div>
+		  			<div class="col col-10 right-icon-sub" align="right">
+		  				<i class="ion-chevron-right"></i>
+		  			</div>
+		  		</div>
+	  		</a>
+	  		<a class="item mine-sub" style="border-bottom:0px" ng-click="about_us()">
+		  		<div class="row">
+		  			<div class="col col-10 ">
+		  				<img class="icon" src="img/index/index-assets/news_h.png">
+		  			</div>
+		  			<div class="col col-10 sub-title">
+		  				关于我们
+		  			</div>
+		  			<div class="col col-70 sub-content" align="right">
+		  				
+		  			</div>
+		  			<div class="col col-10 right-icon-sub" align="right">
+		  				<i class="ion-chevron-right"></i>
+		  			</div>
+		  		</div>
+	  		</a>
+  		</div>
+
+
+  		<div class="mine-sub-div" ng-if="isIOS==true">
+	  		<a class="item mine-sub" style="border:0px" ng-click="about_us()">
+		  		<div class="row">
+		  			<div class="col col-10 ">
+		  				<img class="icon" src="img/index/index-assets/news_h.png">
+		  			</div>
+		  			<div class="col col-10 sub-title">
+		  				关于我们
+		  			</div>
+		  			<div class="col col-70 sub-content" align="right">
+		  				
+		  			</div>
+		  			<div class="col col-10 right-icon-sub" align="right">
+		  				<i class="ion-chevron-right"></i>
+		  			</div>
+		  		</div>
+	  		</a>
+  		</div>
+
+  		<br>
+  		<div class="mine-sub-div" ng-click="log_out()">
+  			<a class="item mine-sub" style="border:0px">
+		  		<div class="row">
+		  			<div class="col col-10 ">
+		  				<img class="icon" src="img/index/index-assets/news_h.png">
+		  			</div>
+		  			<div class="col col-10 sub-title" >
+		  				退出登录
+		  			</div>
+		  			<div class="col col-70 sub-content" align="right">
+		  				
+		  			</div>
+		  			<div class="col col-10 right-icon-sub" align="right">
+		  				<i class="ion-chevron-right"></i>
+		  			</div>
+		  		</div>
+	  		</a>
+  		</div>
+  		
+  		<br>
+  	</ion-list>
+
+  	<div ng-if="page_state == 0" id="login_page">
+  		<div class="list" style="padding-left:1em;padding-right:1em">
+		  <label class="item item-input">
+		    <span class="input-label">手机</span>
+		    <input id="login_mobile" type="text" ng-model="phone_login">
+		  </label>
+		  <label class="item item-input">
+		    <span class="input-label">密码</span>
+		    <input type="password" ng-model="password_login">
+		  </label>
+		</div>
+		<div align="center">
+			<div style="width:40%;font-size:1.3em" ng-click="login()" class="button button-positive">
+				登录
+			</div>
+			<div style="width:40%;font-size:1.3em" ng-click="to_register()" class="button button-positive">
+				注册
+			</div>
+		</div>
+		<div align="center">
+			<br>
+			<a href="" ng-click="passwordForget()">忘记密码</a>
+		</div>
+		<div align="center">
+			<ion-spinner ng-if="waiting == true" icon="spiral"></ion-spinner>
+		</div>
+  	</div>
+
+  	<div ng-if="page_state == 3">
+  		<div align="center">
+  			<div class="button button-positive" style="width:40%" ng-click="to_verified()">
+  				学生实名认证
+  			</div>
+  		</div>
+  		<br/>
+  		<div align="center">
+  			<div class="button button-positive" style="width:40%" ng-click="to_teacher_verified()">
+  				教师实名认证
+  			</div>
+  		</div>
+
+  		<div align="center">
+  			<div class="button button-positive" style="width:40%;margin-top:1em" ng-click="log_out()">
+  				退出登录
+  			</div>
+  		</div>
+  	</div>
+
+
+    <!-- <a href="#/tab/account/detail">aasd</a> -->
+    <!-- 写两次以防无法调用 -->
+    <script id="choice_popover.html" type="text/ng-template">
+		<ion-popover-view style="width:100%;height:50%">
+			<ion-header-bar>
+				<h1 class="title">请选择</h1>
+				 <button class="button button-small" ng-click="closePopover()" style="margin-right:1em;">
+				  确定
+				</button>
+			</ion-header-bar>
+			<ion-content>
+				<ion-list ng-if="popover_list_show == 0">
+	  				<ion-scroll zooming="true" direction="y" style="height: 17em;">
+						<ion-radio ng-repeat="item in popover_list track by $index" ng-click="select_school_popover($index)" ng-model="school_verified" ng-value="item">{{item.name}}</ion-radio>
+					</ion-scroll>
+				</ion-list>
+
+				<ion-list ng-if="popover_list_show == 1">
+	  				<ion-scroll zooming="true" direction="y" style="height: 17em;">
+						<ion-radio ng-repeat="item in major_list track by $index" ng-click="select_major_popover($index)" ng-model="major_verifier" ng-value="item">{{item.name}}</ion-radio>
+					</ion-scroll>
+				</ion-list>
+			</ion-content>
+		</ion-popover-view>
+	</script> 
+  </ion-content>
+</ion-view>

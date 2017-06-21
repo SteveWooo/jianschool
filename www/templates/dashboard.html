@@ -1,0 +1,244 @@
+<ion-view view-title="{{view_page}}" name="dashboard" ng-controller="DashboardController">
+
+  <!-- Here is where you put your tabs-->
+  <div class="tabs tabs-icon-top">
+      <a class="tab-item" 
+         data-ng-class="{active: dashboard.activeIndexView === 0}" 
+         data-ng-click="dashboard.slideTo(0)">
+          <i class="icon icon-news-h" data-ng-show="dashboard.activeIndexView === 0"></i>
+          <i class="icon icon-news" data-ng-show="dashboard.activeIndexView !== 0"></i>
+          <div data-ng-show="dashboard.activeIndexView === 0" style="color:#3391e8">资讯</div>
+          <div data-ng-show="dashboard.activeIndexView !== 0" style="color:#a9a9a9">资讯</div>
+      </a>
+      <a class="tab-item" 
+         data-ng-class="{active: dashboard.activeIndexView === 1}"
+         data-ng-click="dashboard.slideTo(1)">
+          <i class="icon icon-find-h" data-ng-show="dashboard.activeIndexView === 1"></i>
+          <i class="icon icon-find" data-ng-show="dashboard.activeIndexView !== 1"></i>
+          <div data-ng-show="dashboard.activeIndexView === 1" style="color:#3391e8">发现</div>
+          <div data-ng-show="dashboard.activeIndexView !== 1" style="color:#a9a9a9">发现</div>
+      </a>
+      <a class="tab-item" 
+         data-ng-class="{active: dashboard.activeIndexView === 2}"
+         data-ng-click="dashboard.slideTo(2)">
+          <i class="icon icon-me-h" data-ng-show="dashboard.activeIndexView === 2"></i>
+          <i class="icon icon-me" data-ng-show="dashboard.activeIndexView !== 2"></i>
+          <div data-ng-show="dashboard.activeIndexView === 2" style="color:#3391e8">我的</div>
+          <div data-ng-show="dashboard.activeIndexView !== 2" style="color:#a9a9a9">我的</div>
+      </a>
+  </div>  
+
+  <ion-content style="background-color:#eee">
+    <ion-slides options="{keyboardControl: true, initialSlide: 0}" slider="dashboard.slider">
+
+      <!-- status view -->
+      <ion-slide-page>
+        <div data-ng-controller="consult_ctrl" style="background:#eee">
+<!--         <div class="bar bar-header bar-positive">
+          <h1 class="title"><strong>中山大学南方学院</strong></h1>
+        </div> -->
+          <ion-slide-box active-slide="my_slide" does-continue="true" slide-interval="{{my_slide_reside}}" auto-play="true" style="height:120px">
+            <ion-slide ng-repeat="img in slide_imgs">
+              <img style="width:100%;height:100%" ng-src="{{img.src}}">
+            </ion-slide>
+          </ion-slide-box>
+          <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+          <br/>
+          <ion-list>
+            <a href="#/dashboard/{{news.id}}" ng-repeat="news in all_news track by $index" class="item item-thumbnail-left news-list-item">
+              <img ng-src="{{news.img}}">
+              <p class="title">
+                {{news.title}}
+              </p>
+              <div class="description item-text-wrap">
+                {{news.description}}
+              </div>
+              <p class="time">
+                {{news.time}}
+              </p>
+
+            </a>
+            <a align='center' class="item news-list-item" style="height:auto;" ng-click="test()">
+              加载更多..
+            </a>
+          </ion-list>
+        </div>
+      </ion-slide-page>
+
+      <!-- chat view -->
+      <ion-slide-page>
+        <div ng-controller="tools_ctrl" class="tools" id="index_tools_panel">
+          <ion-slide-box active-slide="my_slide" does-continue="true" slide-interval="{{my_slide_reside}}" auto-play="true" style="height:120px"><!--640*200-->
+            <ion-slide ng-repeat="img in slide_imgs">
+              <img style="width:100%;height:100%" ng-src="{{img.src}}">
+            </ion-slide>
+          </ion-slide-box>
+          <div class="panel">
+            <div class="row">
+              <div align="center" class="col grid_9" ng-repeat="col in all_tools.row[0] track by $index" my-touchstart="{{0+$index}}" my-touchend="{{0+$index}}">
+                <a >
+                  <img class="{{col.img_style}}" id="{{col.img_id}}" ng-if="col.img_src!='#'" ng-src="{{col.img_src}}">
+                </a>
+              </div>
+            </div>
+            <div class="row">
+              <div align="center" class="col grid_9" ng-repeat="col in all_tools.row[1] track by $index" my-touchstart="{{3+$index}}" my-touchend="{{3+$index}}"> 
+                <a >
+                  <img class="{{col.img_style}}" id="{{col.img_id}}" ng-if="col.img_src!='#'" ng-src="{{col.img_src}}">
+                </a>
+              </div>
+            </div>
+            <div class="row">
+              <div align="center" class="col grid_9" ng-repeat="col in all_tools.row[2] track by $index" my-touchstart="{{6+$index}}" my-touchend="{{6+$index}}">
+                <a >
+                  <img class="{{col.img_style}}" id="{{col.img_id}}" ng-if="col.img_src!='#'" ng-src="{{col.img_src}}">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </ion-slide-page>
+
+      <!-- account view -->
+      <ion-slide-page>
+        <div class="account" ng-controller="mine_ctrl">
+          <br/>
+          <ion-list>
+            <a class="item mine" href="#/dashboard/detail">
+              <div class="row">
+                <div class="col col-25">
+                  <img class="portrait" ng-src={{mine.portrait}}>
+                </div>
+                <div class="col col-66">
+                  <p class="nick">
+                    {{mine.nick}}
+                  </p>
+                  <p class="sign">
+                    {{mine.sign}}
+                  </p>
+                </div>
+                <div align="right" class="col right-icon">
+                  <i class=" ion-chevron-right"></i>
+                </div>
+              </div>
+            </a>
+            <br/>
+            <div class="mine-sub-div">
+              <a class="item mine-sub" style="border-top:0px">
+                <div class="row">
+                  <div class="col col-10 ">
+                    <img class="icon" src="img/index/index-assets/news_h.png">
+                  </div>
+                  <div class="col col-20 sub-title">
+                    宿舍
+                  </div>
+                  <p class="col col-70 sub-content" align="right">
+                    {{mine.drom}}
+                  </p>
+                  <div class="col col-10 right-icon-sub" align="right">
+                    <i class="ion-chevron-right"></i>
+                  </div>
+                </div>
+              </a>
+
+              <a class="item mine-sub">
+                <div class="row">
+                  <div class="col col-10 ">
+                    <img class="icon" src="img/index/index-assets/news_h.png">
+                  </div>
+                  <div class="col col-20 sub-title">
+                    手机
+                  </div>
+                  <p class="col col-70 sub-content" align="right">
+                    {{mine.phone}}
+                  </p>
+                  <div class="col col-10 right-icon-sub" align="right">
+                    <!-- <i class="ion-chevron-right"></i> -->
+                  </div>
+                </div>
+              </a>
+            
+              <a class="item mine-sub" style="border-bottom:0px">
+                <div class="row">
+                  <div class="col col-10 ">
+                    <img class="icon" src="img/index/index-assets/news_h.png">
+                  </div>
+                  <div class="col col-20 sub-title">
+                    密码
+                  </div>
+                  <p class="col col-70 sub-content" align="right">
+                    修改
+                  </p>
+                  <div class="col col-10 right-icon-sub" align="right">
+                    <i class="ion-chevron-right"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <br>
+            <div class="mine-sub-div">
+              <a class="item mine-sub" style="border-top:0px">
+                <div class="row">
+                  <div class="col col-10 ">
+                    <img class="icon" src="img/index/index-assets/news_h.png">
+                  </div>
+                  <div class="col col-10 sub-title">
+                    帮助与反馈
+                  </div>
+                  <div class="col col-70 sub-content" align="right">
+                    
+                  </div>
+                  <div class="col col-10 right-icon-sub" align="right">
+                    <i class="ion-chevron-right"></i>
+                  </div>
+                </div>
+              </a>
+              <a class="item mine-sub" style="border-bottom:0px">
+                <div class="row">
+                  <div class="col col-10 ">
+                    <img class="icon" src="img/index/index-assets/news_h.png">
+                  </div>
+                  <div class="col col-10 sub-title">
+                    关于加简
+                  </div>
+                  <div class="col col-70 sub-content" align="right">
+                    
+                  </div>
+                  <div class="col col-10 right-icon-sub" align="right">
+                    <i class="ion-chevron-right"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+            
+
+            <br>
+            <div class="mine-sub-div">
+              <a class="item mine-sub" style="border:0px">
+                <div class="row">
+                  <div class="col col-10 ">
+                    <img class="icon" src="img/index/index-assets/news_h.png">
+                  </div>
+                  <div class="col col-10 sub-title">
+                    退出登录
+                  </div>
+                  <div class="col col-70 sub-content" align="right">
+                    
+                  </div>
+                  <div class="col col-10 right-icon-sub" align="right">
+                    <i class="ion-chevron-right"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+            
+            <br>
+          </ion-list>
+        </div>
+        
+      </ion-slide-page>
+
+    </ion-slides>
+  </ion-content>
+</ion-view>

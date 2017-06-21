@@ -1,0 +1,25 @@
+<ion-view title="查看订单" hide-tabs="true" class="buy_ticket_detail_submit">
+	<ion-content class="content">
+		<div class="list">
+			<div class="item">
+				<div class="row">
+					<div class="col-33">
+						支付方式：
+					</div>
+					<div class="col-50">
+						中大南方校园卡
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+	<div class="bar bar-footer bar-dark">
+		<div class="pull-left" style="font-size: 18px;margin-top: 8px;margin-left: 10px">
+			总额:
+			<font color="red">¥{{order.price}}</font>
+		</div>
+    	<div class="button pull-right" ng-click="order.submit()" style="background:#ff9b0c;font-size:1.5em;">
+      		付款
+    	</div>
+  	</div>
+</ion-view>

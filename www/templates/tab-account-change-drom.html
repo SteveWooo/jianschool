@@ -1,0 +1,35 @@
+<ion-view view-title="宿舍修改">
+    <ion-nav-buttons side="right">
+	  <button class="button" ng-click="submit()">
+	    完成
+	  </button>
+	</ion-nav-buttons>
+	<ion-content padding="false" class="account-nick" id="nick_change_page">
+		<div class="scroll-content">
+			<div class="list">
+				<label class="item item-input item-select">
+					<div class="input-label">
+						宿舍楼
+					</div>
+					<select name="dorm_change" id="dorm_change">
+						<option ng-repeat="item in all_areas track by $index">
+							<div>
+								{{item.name}}
+							</div>
+						</option>
+					</select>
+				</label>
+				<div>
+					<label class="item item-input">
+						<input type="text" ng-model="msg_temp" id="dorm_number" placeholder="宿舍号">
+					</label>
+				</div>
+			</div>
+
+		</div>
+
+		 
+		
+
+	</ion-content>
+</ion-view>

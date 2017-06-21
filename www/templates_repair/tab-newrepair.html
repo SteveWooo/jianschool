@@ -1,0 +1,216 @@
+<ion-view view-title="新建报修单" id="new_repair">
+	<script id="choose_repair_page.html" type="text/ng-template">
+	  <ion-popover-view class='popover-repair'>
+	    <ion-header-bar>
+	      <button class="button button-small" ng-click="popover_back()" ng-if="popover_show_second_menu == true" style="margin-left:1em;">
+			  返回
+		  </button>
+	      <h1 class="title" ng-if="repair_item=='请选择'">选择报修内容</h1>
+	      <h1 class="title" style="width:50%;margin-left:20%" ng-if="repair_item!='请选择' && repair_detail == ''">{{repair_item}}</h1>
+	      <h1 class="title" style="width:50%;margin-left:20%" ng-if="repair_item!='请选择'">{{repair_detail}}</h1>
+	      <button class="button button-small" ng-click="submit_repair_content()" style="margin-right:1em;">
+			  确定
+		  </button>
+	    </ion-header-bar>
+	    <ion-content>
+	      <div class="row">
+	      	<div ng-class="popover_left_menu">
+ 				<ion-list>
+ 					<ion-scroll zooming="true" direction="y" style="height: 17em">
+ 						<ion-radio ng-repeat="item in first_popover_menu" ng-click="select_first_popover($index,item)" ng-model="repair_item" ng-value="item" style="font-size:0.9em">
+ 							{{item.name}}
+ 						</ion-radio>
+ 					</ion-scroll>
+ 				</ion-list>
+	      	</div>
+	      	<div class="col-90" ng-if="popover_show_second_menu == true">	
+	      		<ion-list>
+	      			<ion-scroll zooming="true" direction="y" style="height: 17em;">
+ 						<ion-radio ng-repeat="item in second_popover_menu" ng-click="select_second_popover(item)" ng-model="repair_item" ng-value="item" style="font-size:0.9em">{{item.name}}</ion-radio>
+ 					</ion-scroll>
+ 				</ion-list>
+
+	      	</div>
+	      </div>
+
+	      
+	    </ion-content>
+	  </ion-popover-view>
+	 </script>
+	<ion-nav-buttons side="left">
+	  <a class="button" href="index.html#/tab/tools">
+	    <i class="ion-chevron-left">返回</i>
+	  </a>
+	</ion-nav-buttons>
+  <ion-content class="" id="content" controller="repair_ctrl" style="background:#eeeeee" scrollbar-y="false">
+
+  	<br>
+  	<ion-list class="repair-new-repair">
+  	
+  		<ion-item>
+	  		
+	  			<div class="row left-label">
+					<div class="col-40">
+						<strong>是否为公共区域</strong>
+					</div>
+					<div class="col-60 right-label">
+						<div class="row">
+							<div class="col-20" ng-click="repair_public_choose_yes()">
+								<p class="{{repair_public_yes}} radio" ></p>
+							</div>
+							<div class="col-20 font" ng-click="repair_public_choose_yes()">
+								是
+							</div>
+							<div class="col-20" ng-click="repair_public_choose_no()">
+								<p class="{{repair_public_no}} radio" ></p>
+							</div>
+							<div class="col-20 font" ng-click="repair_public_choose_no()">
+								否
+							</div>
+						</div>
+					</div>
+				</div>
+			</ion-item>
+<!-- 			<ion-item>
+				<div class="row left-label">
+					<div class="col-25">
+						<strong>联系人</strong>
+					</div>
+					<div class="col-70 right-label">
+						<input ng-model="" type="text" value=""/>
+					</div>
+				</div>
+			</ion-item> -->
+			<ion-item>
+				<div class="row left-label">
+					<div class="col-33">
+						<strong>短号</strong>
+					</div>
+					<div class="col-66 right-label" style="margin-left:0.3em">
+						<input ng-model="mobile" placeholder="没有则填长号" id="mobile" type="text" value=""/>
+					</div>
+				</div>
+			</ion-item>
+			<ion-item>
+				<div class="row left-label">
+					<div class="col-25">
+						<strong>预约时间</strong>
+					</div>
+					<div class="col-70 right-label">
+						<div class="button button-light" ng-click="pick_repair_date()" style="margin-top:-0.25em;color:#999;font-size:0.9em">{{reservation_date}}</div>
+						<div class="item item-input item-select">
+							<div class="input-label">
+								确定
+							</div>
+							<select ng-model="reservation_time" id="reservation_time" style="margin-top:0.6em;color:#999">
+						      <option value="default">选择时间段</option>
+						      <option ng-repeat="item in repair_content.repair_time" value="{{item.id}}">{{item.start}}-{{item.end}}</option>
+						    </select>
+						</div>
+					</div>
+				</div>
+			</ion-item>
+			<ion-item>
+				<div class="row left-label">
+					<div class="col-25">
+						<strong>报修地址</strong>
+					</div>
+					<div class="col-70 right-label">
+						<label class="item item-input item-select">
+							<div class="input-label" style="color:#000">
+								选择地址
+							</div>
+							<select class="" style="margin-top:0.4em;margin-left:1em;color:#999" id="repair_area" ng-model="position">
+						      <option value="default">选择地址</option>
+						      <option ng-repeat="item in repair_area_view" value="{{item.id}}">{{item.name}}</option>
+						    </select>
+						</label>
+					   <!--  <input ng-if="repair_public==false" class="input-drom" placeholder="请输入宿舍号" ng-mdoel="drom_detail" /> -->
+					</div>
+				</div>
+			</ion-item>
+			<ion-item>
+				<select>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+				</select>
+			</ion-item>
+			<ion-item ng-if="repair_public == false">
+				<div class="row left-label">
+					<div class="col-33">
+						<strong>宿舍号</strong>
+					</div>
+					<div class="col-66 right-label" style="margin-left:0.5em">
+						<input ng-model="drom" id="drom" type="text" value=""/>
+					</div>
+				</div>
+			</ion-item>
+			<ion-item ng-if="repair_public == false">
+				<div class="row left-label">
+					<div class="col-25">
+						<strong>床号</strong>
+					</div>
+					<div class="item item-input item-select">
+						<div class="input-label">
+							确定
+						</div>
+						<div class="col-70 right-label" style="margin-left:0.3em">
+							<select class="" style="margin-top:0.4em;margin-left:1.8em;color:#999" id="bed_number" ng-model="bed_number">
+						      <option value="default">选择床号</option>
+						      <option value="A">A</option>
+						      <option value="B">B</option>
+						      <option value="C">C</option>
+						      <option value="D">D</option>
+						    </select>
+						</div>
+						
+					</div>
+				</div>
+			</ion-item>
+			<br>
+			<ion-item>
+				<div class="row left-label" ng-click="choose_repair_content($event)">
+					<div class="col col-25" style="margin-top:-0.3em">
+						<strong>报修内容</strong>
+					</div>
+					<div class="col col-70 right-label" >
+					    <div class="repair-content" style="color:#999;margin-top:0.1em">{{repair_detail}}
+					    </div>
+					</div>
+				</div>
+			</ion-item>
+			
+			<ion-item class="description">
+				<textarea rows="6" placeholder="请填写详细情况" ng-model="repair_description"  ng-Required="true" id="repair_description">
+					
+				</textarea>
+			</ion-item>
+			<ion-item class="repair-photo">
+				<div class="row">
+					<div class="col-20 left-label">
+						<strong>详情图片</strong>
+					</div>
+					<div class="col-80" align="center" ng-repeat="img in repair_imgs track by $index">
+						<img ng-click="show_img_choose({{$index}})" ng-if="img!=''" ng-src="{{img}}">
+						<img ng-click="show_img_choose($index)" ng-if="img==''" ng-src="img/tools/repair/img_default.png">
+					</div>
+				</div>
+			</ion-item>
+<!-- 			<ion-item>
+
+				<input type="file" name="img1" id="user_image_1" value="C:/passwords.txt">
+				<input type="file" value="{{user_images[1]}}">
+				<input type="file" value="{{user_images[2]}}">
+			</ion-item> -->
+			<ion-item class="submit">
+				<div align="center">
+					<button id="student_submit_button" ng-if="submit_button == true" class="button button-positive" ng-click="submit()">
+					  提交
+					</button>
+					<ion-spinner ng-if="waiting == true" icon="spiral"></ion-spinner>
+				</div>
+		</ion-item>
+  	</ion-list>
+  </ion-content>
+</ion-view>

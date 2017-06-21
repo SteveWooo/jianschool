@@ -1,0 +1,42 @@
+<ion-view view-title="电费查询" class="electric_check" id="electric_check" cache-view='true'>
+	<ion-nav-buttons side="left">
+	  <a class="button" href="index.html#/tab/tools">
+	    <i class="ion-chevron-left">返回</i>
+	  </a>
+	</ion-nav-buttons>
+  <ion-content class="list_content">
+
+    <div class="scroll-content" style="margin-top:1em">
+      <div class="list">
+        <label class="item item-input item-select">
+          <div class="input-label">
+            宿舍楼
+          </div>
+          <select name="dorm_change" id="dorm_check">
+            <option ng-repeat="item in all_areas track by $index">
+              <div>
+                {{item.name}}
+              </div>
+            </option>
+          </select>
+        </label>
+        <div>
+          <label class="item item-input">
+            <input type="text" ng-model="msg_temp" id="dorm_number_check" placeholder="宿舍号">
+          </label>
+        </div>
+      </div>
+
+      <div align="center">
+        <div class="button button-positive" ng-click="submit()" style="width:40%;margin-top:1em">
+          确定
+        </div>
+      </div>
+
+    </div>
+
+<!--         <div align="center">
+          <ion-spinner ng-if="waiting == true" icon="spiral"></ion-spinner>
+        </div> -->
+  </ion-content>
+</ion-view>

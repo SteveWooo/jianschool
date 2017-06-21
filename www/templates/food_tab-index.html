@@ -1,0 +1,78 @@
+<ion-view view-title="饭堂远程服务" ><!--cache-view="false" 禁用缓存-->
+  <ion-nav-buttons side="left">
+    <a class="button" href="index.html#/tab/tools">
+      <i class="ion-chevron-left"></i>
+    </a>
+  </ion-nav-buttons>
+  <ion-content class="foods_index" id="foods_index" style="background:#eeeeee">
+    <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+    <br/>
+    
+    <ion-list>
+<!--       <ion-item class="navbar">
+        <div class="row">
+          <div align='center' style="border-right:1px solid #999" class="col">
+            分类
+          </div>
+          <div align='center' class="col">
+            排序
+          </div>
+          <div align='center' class="col">
+            筛选
+          </div>
+        </div>
+      </ion-item> -->
+      <a href="#" ng-click="tab_go(1)" class="item item-thumbnail-left item-icon-right foods-list-item">
+        <img ng-src="img/tools/foods/img_demo.png">
+        <p class="title">
+          测试外卖1
+        </p>
+        <div class="description item-text-wrap">
+          <div class="star">
+            <img ng-src="img/tools/foods/star.png">
+            <img ng-src="img/tools/foods/star.png">
+            <img ng-src="img/tools/foods/star.png">
+            <img ng-src="img/tools/foods/star_g.png">
+            <img ng-src="img/tools/foods/star_g.png">
+            3.0
+          </div>
+          <div class="money">
+            西式快餐 | 90km
+          </div>
+        </div>
+        <p class="icon">
+          <img ng-src="img/tools/foods/icon.png">
+        </p>
+      </a>
+
+      <a href="#" ng-click="test()" class="item item-thumbnail-left item-icon-right foods-list-item">
+        <img ng-src="img/tools/foods/img_demo.png">
+        <p class="title">
+          测试外卖2
+        </p>
+        <div class="description item-text-wrap">
+          <div class="star">
+            <img ng-src="img/tools/foods/star.png">
+            <img ng-src="img/tools/foods/star.png">
+            <img ng-src="img/tools/foods/star.png">
+            <img ng-src="img/tools/foods/star.png">
+            <img ng-src="img/tools/foods/star_g.png">
+            4.0
+          </div>
+          <div class="money">
+            西式快餐 | 900km
+          </div>
+        </div>
+        <p class="icon">
+          <img ng-src="img/tools/foods/icon.png">
+        </p>
+      </a>
+
+
+      <a align='center' id="add_more_foods" class="item" style="height:auto;font-size:1em;background-color:#fff;color:#999" ng-click="add_foods()">
+          查看更多
+      </a>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

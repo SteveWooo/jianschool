@@ -1,0 +1,40 @@
+<ion-view view-title="发现">
+  <ion-content class="tools" id="index_tools_panel">
+    <ion-slide-box show-pager="false" active-slide="my_slide" does-continue="true" slide-interval="{{my_slide_reside}}" auto-play="true" style="height:8.5em" delegate-handle="false"><!--640*200-->
+      <ion-slide ng-repeat="img in slide_imgs">
+      <a href="#/tab/tools/{{img.id}}">
+        <div class="title">
+          {{img.msg}}
+        </div>
+        <img style="width:100%;height:100%" ng-src="{{img.src}}">
+      </a>
+      
+      </ion-slide>
+    </ion-slide-box>
+    <div class="br"></div>
+    <div class="panel">
+      <div class="row">
+        <div align="center"  class="col grid_9" ng-repeat="col in all_tools.row[0] track by $index" my-touchstart="{{0+$index}}" my-touchend="{{0+$index}}" ng-click="check_tools_in(col.action,col.state)">
+          <a>
+            <img style="margin-top:1em" class="{{col.img_style}}" id="{{col.img_id}}" ng-if="col.img_src!='#'" ng-src="{{col.img_src}}">
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div align="center" class="col grid_9" ng-repeat="col in all_tools.row[1] track by $index" my-touchstart="{{3+$index}}" my-touchend="{{3+$index}}" ng-click="check_tools_in(col.action)"> 
+          <a>
+            <img class="{{col.img_style}}" id="{{col.img_id}}" ng-if="col.img_src!='#'" ng-src="{{col.img_src}}">
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div align="center" class="col grid_9" ng-repeat="col in all_tools.row[2] track by $index" my-touchstart="{{6+$index}}" my-touchend="{{6+$index}}" ng-click="check_tools_in(col.action)">
+          <a >
+            <img class="{{col.img_style}}" id="{{col.img_id}}" ng-if="col.img_src!='#'" ng-src="{{col.img_src}}">
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,38 @@
+<ion-view title="车票查询" hide-tabs="false" id="check_ticket" cache-view='true'>
+	<ion-nav-buttons side="left">
+	  <a class="button" href="index.html#/tab/tools">
+	    <i class="ion-chevron-left"> 返回</i>
+	  </a>
+	</ion-nav-buttons>
+	<ion-content class="buy_ticket_detail" style="background-color: #eee">
+		<ion-refresher pulling-text="下拉刷新" on-refresh="tools.do_refresh()"></ion-refresher>
+		<div class="content">
+			<ul class="list">
+				<li class="item" style="border-top: 1" ng-repeat="item in list.lists" ng-click="list.checkDetail(item.id,item.total)">
+					<div class="car-type" ng-if="item.status == 1"></div>
+					<div class="car-type-blue" ng-if="item.status == 2"></div>
+					<div class="car-type-grey" ng-if="item.status == 3"></div>
+					<div class="car-type-msg">
+						{{item.carType}}
+					</div>
+					<div class="row">
+						<div class="col-25" style="color:#999">
+							id:{{item.id}}
+						</div>
+						<div class="col-50 item-text-wrap">
+							{{item.order_items[0].name}}
+						</div>
+					</div>
+				</li>
+				<li class="item">
+					<div align="center" style="color: #999" ng-click="list.getMore()" ng-if="list.page<list.allPage">
+						加载更多
+					</div>
+					<div align="center" style="color: #999" ng-if="list.page>=list.allPage">
+						已无更多 下拉刷新
+					</div>
+				</li>
+			</ul>
+		</div>
+	</ion-content>
+</ion-view>

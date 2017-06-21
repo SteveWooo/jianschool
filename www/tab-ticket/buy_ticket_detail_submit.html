@@ -1,0 +1,45 @@
+<ion-view title="订单提交" hide-tabs="true" class="buy_ticket_detail_submit">
+	<ion-content class="content">
+		<div class="list">
+			<div class="item">
+				<div class="row">
+					<div class="col-33">
+						出发点：
+					</div>
+					<div class="col-70">
+						{{detail.detail.beginPath}}
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="row">
+					<div class="col-33">
+						终点：
+					</div>
+					<div class="col-70">
+						{{detail.detail.endPath}}
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="row">
+					<div class="col-33">
+						日期时间：
+					</div>
+					<div class="col-50">
+						{{detail.detail.date}} {{detail.detail.time}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+	<div class="bar bar-footer bar-dark">
+		<div class="pull-left" style="font-size: 18px;margin-top: 8px;margin-left: 10px">
+			总额:
+			<font color="red">¥{{detail.detail.price}}</font>
+		</div>
+    	<div class="button pull-right" ng-click="detail.purchase()" style="background:#ff9b0c;font-size:1.5em;">
+      		提交订单
+    	</div>
+  	</div>
+</ion-view>

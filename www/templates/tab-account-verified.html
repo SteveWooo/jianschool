@@ -1,0 +1,73 @@
+<ion-view view-title="<b>实名认证</b>">
+  <ion-content padding="false" class="account-verified" id="account-verified">
+  	<div class="list" style="margin-top:0em;">
+
+	  <div class="item sw-input" ng-click="openPopover($event,'0')">
+		  <div align="center" style="color:#999">
+		  	{{school_verified}}
+		  </div>
+	  </div>
+
+  	  <div class="item sw-input" ng-click="openPopover($event,'1')">
+		  <div align="center" style="color:#999">
+		  	{{major_verified}}
+		  </div>
+	  </div>
+
+	  <div class="item item-input sw-input">
+	  	<span class="input-label">学号：</span>
+	  	<input type="text" ng-model="student_id_verified" maxlength="20">
+	  </div>
+
+	  <div class="item item-input sw-input">
+	  	<span class="input-label">真实姓名：</span>
+	  	<input type="text" ng-model="realname_verified" maxlength="30">
+	  </div>
+
+	  <div class="item item-input sw-input">
+	  	<span class="input-label">身份证后4位：</span>
+	  	<input type="text" ng-model="idcard_verified" maxlength="4">
+	  </div>
+
+	  <div class="item item-input sw-input" ng-click="choose_gender()">
+	  	<span class="input-label">性别：</span>
+	  	<div>
+			{{gender_verified}}
+		</div>
+	  </div>
+	  <div align="center">
+	  	<div class="button button-positive" ng-click="submit_verified()" style="width:40%;margin-top:1em">
+	  		确认提交
+	  	</div>
+	  </div>
+	</div>
+  </ion-content>
+<!-- 写两次以防无法调用 -->
+      <script id="choice_popover.html" type="text/ng-template">
+		<ion-popover-view style="width:100%;height:50%">
+			<ion-header-bar>
+				<h1 class="title">请选择</h1>
+				 <button class="button button-small" ng-click="closePopover()" style="margin-right:1em;">
+				  确定
+				</button>
+			</ion-header-bar>
+			<ion-content>
+				<ion-list ng-if="popover_list_show == 0">
+	  				<ion-scroll zooming="true" direction="y" style="height: 17em;">
+						<ion-radio ng-repeat="item in popover_list track by $index" ng-click="select_school_popover($index)" ng-model="school_verified" ng-value="item">{{item.name}}</ion-radio>
+					</ion-scroll>
+				</ion-list>
+
+				<ion-list ng-if="popover_list_show == 1">
+	  				<ion-scroll zooming="true" direction="y" style="height: 17em;">
+						<ion-radio ng-repeat="item in major_list track by $index" ng-click="select_major_popover($index)" ng-model="major_verifier" ng-value="item">
+							{{item.name}}
+						</ion-radio>
+					</ion-scroll>
+				</ion-list>
+			</ion-content>
+		</ion-popover-view>
+	</script>
+</ion-view>
+
+

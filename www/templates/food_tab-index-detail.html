@@ -1,0 +1,47 @@
+<ion-view view-title="详情" hide-tabs="true"><!--cache-view="false" 禁用缓存-->
+  <ion-content class="foods_index_detail" id="foods_index_detail" style="background:#eeeeee">
+    <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+    <br/>
+    <ion-list>
+      <ion-item ng-repeat="item in foods_index_list track by $index" class="item-thumbnail-left item-icon-right food_list">
+        <img ng-src="img/ionic.png">
+        <div class="title">
+          {{item.title}}
+        </div>
+<!--         <div class="describe">
+          月售:123
+        </div> -->
+        <div class="price">
+          ￥{{item.price}}/份
+        </div>
+        <div class="icon">
+          <img ng-if="item.count>0" ng-src="img/tools/foods/minus.png" ng-click="item.minus_count()">
+          <div ng-if="item.count>0" align="center" class="count">{{item.count}}</div>
+          <img ng-src="img/tools/foods/add.png" ng-click="item.add_count()">
+        </div>
+      </ion-item>
+
+
+      <a align='center' id="add_more_foods_in_detail" class="item" style="height:auto;font-size:1em;background-color:#fff;color:#999" ng-click="add_foods()">
+          查看更多
+      </a>
+    </ion-list>
+
+  </ion-content>
+
+  <div class="bar bar-footer bar-dark foods_index_detail">
+    <div class="button pull-left" style="font-size:1.5em;">
+      <div class="badge-background" ng-if="foods_index_list.total>0"></div>
+      <div align="center" ng-class="foods_index_list.badge_style" ng-if="foods_index_list.total>0">
+        {{foods_index_list.total}}
+      </div>
+      <img style="height:1.2em;width:1.2em;margin-top:0.3em" ng-src="img/tools/foods/cart.png"> 
+    </div>
+    <div class="button pull-right" ng-click="submit_foods()" style="background:#ff9b0c;font-size:1.5em;width:auto">
+      <font style="margin-left:0.7em;font-size:1em">
+        ¥{{foods_index_list.total_value}} 
+      </font>
+        去提交
+    </div>
+  </div>
+</ion-view>

@@ -1,0 +1,41 @@
+<ion-view view-title="我的订单" ><!--cache-view="false" 禁用缓存-->
+  <ion-nav-buttons side="left">
+    <a class="button" href="index.html#/tab/tools">
+      <i class="ion-chevron-left"></i>
+    </a>
+  </ion-nav-buttons>
+  <div class="tabs-striped tabs-top tabs-background-light tabs-color-positive">
+      <div class="tabs">
+        <a class="tab-item {{tab_active_array[0]}}" href="#" ng-click="tab_show_list(0)">
+          处理中
+        </a>
+        <a class="tab-item {{tab_active_array[1]}}" href="#" ng-click="tab_show_list(1)">
+          已完成
+        </a>
+      </div>
+    </div>
+  <ion-content class="foods_my_list" id="foods_my_list" style="background:#eeeeee">
+    <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+    <ion-list style="margin-top:2em">
+      <a ng-if="list_show == 0" ng-repeat="item in my_list" href="#" class="item item-thumbnail-left item-icon-right foods-list-item">
+        <img ng-src="img/tools/foods/img_demo.png">
+        <p class="title">
+          {{item.name}}
+        </p>
+        <div class="description item-text-wrap">
+          <div class="money">
+             {{item.time}}
+          </div>
+        </div>
+        <p class="icon">
+          <img ng-src="img/tools/foods/icon.png">
+        </p>
+      </a>
+
+      <a align='center' id="add_more_list_button" class="item" style="height:auto;font-size:1em;background-color:#fff;color:#999" ng-click="get_more()">
+          查看更多
+      </a>
+    </ion-list>
+
+  </ion-content>
+</ion-view>
